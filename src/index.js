@@ -8,10 +8,11 @@ function createWindow() {
     height: 600
   })
 
-  console.log('Environment:', process.env.NODE_ENV)
   if (process.env.NODE_ENV !== 'development') {
+    // Load production build
     win.loadFile(`${__dirname}/renderer/dist/index.html`)
   } else {
+    // Load vite dev server page 
     console.log('Development mode')
     win.loadURL('http://localhost:3000/')
   }

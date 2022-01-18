@@ -30,9 +30,9 @@ To redo this repo:
     * add scripts:
       ```json
       "scripts": {
-        "start": "concurrently 'npm run web:watch' 'sleep 1 && npm run electron:start'",
+        "start": "NODE_ENV=development concurrently 'npm run web:watch' 'sleep 1 && npm run electron:start'",
         "web:watch": "vite",
-        "electron:start": "NODE_ENV=development electron src",
+        "electron:start": "electron src",
         "build": "vite build && electron-builder"
       }
       ```
