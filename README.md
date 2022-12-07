@@ -23,14 +23,14 @@ To redo this repo:
 
 1. `npm init vite@latest`, select svelte.
 2. Copy `public`, `src`, `index.html` to `src/renderer`. You can remote the fluff like `.vscode`.
-3. Add more dependencies `npm install --save-dev electron electron-builder concurrently`
+3. Add more dependencies `npm install --save-dev electron electron-builder concurrently cross-env`
 4. Edit `package.json`:
     * delete line with `"type": "module",`
     * add `"main": "src/index.js",`
     * add scripts:
       ```json
       "scripts": {
-        "start": "NODE_ENV=development concurrently 'npm run web:watch' 'sleep 1 && npm run electron:start'",
+        "start": "cross-env NODE_ENV=development concurrently \"npm run web:watch\" \"npm run electron:start\"",
         "web:watch": "vite",
         "electron:start": "electron src",
         "build": "vite build && electron-builder"

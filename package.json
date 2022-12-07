@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "main": "src/index.js",
   "scripts": {
-    "start": "NODE_ENV=development concurrently 'npm run web:watch' 'sleep 1 && npm run electron:start'",
+    "start": "NODE_ENV=development concurrently \"npm run web:watch\" \"npm run electron:start\"",
     "web:watch": "vite",
     "electron:start": "electron src",
     "build": "vite build && electron-builder"
@@ -11,6 +11,7 @@
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^1.0.0-next.30",
     "concurrently": "^7.0.0",
+    "cross-env": "^7.0.3",
     "electron": "^19.0.6",
     "electron-builder": "^23.0.2",
     "svelte": "^3.44.0",
